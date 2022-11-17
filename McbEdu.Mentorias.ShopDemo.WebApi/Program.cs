@@ -18,6 +18,7 @@ public class Program
 
         builder.Services.AddDbContext<DataContext>();
 
+        builder.Services.AddScoped<DataContext>();
         builder.Services.AddSingleton<IBaseMapping<Customer>, CustomerBaseMapping>();
 
         var app = builder.Build();
