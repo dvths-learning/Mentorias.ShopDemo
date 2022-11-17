@@ -7,6 +7,11 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Data.Repositories.Extensions;
 
 public class ExtendsCustomerRepository : CustomerRepository, IExtendsRepository<Customer>
 {
+    public ExtendsCustomerRepository(DataContext dataContext) : base(dataContext)
+    {
+
+    }
+
     public async Task<bool> VerifyEntityExistsAsync(string information)
     {
         if (await _dataContext.Customers.CountAsync() < 1) return false;
