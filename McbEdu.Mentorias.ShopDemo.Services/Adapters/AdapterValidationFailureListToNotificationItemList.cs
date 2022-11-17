@@ -6,7 +6,7 @@ namespace McbEdu.Mentorias.ShopDemo.Services.Adapters;
 
 public class AdapterValidationFailureListToNotificationItemList : IAdapter<List<NotificationItemBase>, List<ValidationFailure>>
 {
-    public List<NotificationItemBase> Adapt(in List<ValidationFailure> adapter)
+    public List<NotificationItemBase> Adapt(List<ValidationFailure> adapter)
     {
         var notificationsItems = new List<NotificationItemBase>();
         foreach (var validationFailure in adapter)

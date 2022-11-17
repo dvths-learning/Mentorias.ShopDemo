@@ -17,6 +17,7 @@ using McbEdu.Mentorias.ShopDemo.Infrascructure.Data.Repositories.Extensions;
 using McbEdu.Mentorias.ShopDemo.Services.Adapters;
 using McbEdu.Mentorias.ShopDemo.Services.Handlers.CreateCustomer;
 using McbEdu.Mentorias.ShopDemo.Services.Handlers.CreateCustomer.Inputs;
+using Microsoft.EntityFrameworkCore;
 
 namespace McbEdu.Mentorias.ShopDemo.WebApi;
 
@@ -31,7 +32,7 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddSingleton<IBaseMapping<Customer>, CustomerBaseMapping>();
-        builder.Services.AddDbContext<DataContext>();
+        builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($@"Data Source=Ecommerce.db", b => b.MigrationsAssembly("McbEdu.Mentorias.ShopDemo.WebApi")));
         builder.Services.AddScoped<DataContext>();
         builder.Services.AddScoped<IExtendsRepository<Customer>, ExtendsCustomerRepository>();
 

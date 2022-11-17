@@ -6,7 +6,7 @@ namespace McbEdu.Mentorias.ShopDemo.Services.Adapters;
 
 public class AdapterCustomerStandardToCustomerDTO : IAdapter<Customer, CustomerStandard>
 {
-    public Customer Adapt(in CustomerStandard adapter)
+    public Customer Adapt(CustomerStandard adapter)
     {
         return new Customer() 
         { 
