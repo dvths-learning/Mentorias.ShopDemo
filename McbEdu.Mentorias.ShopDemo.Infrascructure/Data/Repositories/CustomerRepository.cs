@@ -27,7 +27,7 @@ public class CustomerRepository : IBaseRepository<Customer>
 
     public async Task DeleteAsync(Customer entity)
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return;
+        if (_dataContext.Customers is null) return;
 
         _dataContext.Customers.Remove(entity);
         await _dataContext.SaveChangesAsync();
@@ -35,21 +35,21 @@ public class CustomerRepository : IBaseRepository<Customer>
 
     public async Task<List<Customer>> GetAllAsync()
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return new List<Customer>();
+        if (_dataContext.Customers is null) return new List<Customer>();
 
         return await _dataContext.Customers.ToListAsync();
     }
 
     public async Task<Customer?> GetAsync(Guid identifier)
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return null;
+        if (_dataContext.Customers is null) return null;
 
         return await _dataContext.Customers.Where(p => p.Identifier == identifier).FirstAsync();
     }
 
     public async Task UpdateAsync(Customer entity)
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return;
+        if (_dataContext.Customers is null) return;
 
         _dataContext.Customers.Update(entity);
         await _dataContext.SaveChangesAsync();

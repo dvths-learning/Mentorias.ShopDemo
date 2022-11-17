@@ -5,10 +5,13 @@ public class CreateCustomerInputModel
     public string Name { get; set; }
     public string Surname { get; set; }
     public string Email { get; set; }
-    public DateOnly Birthday { get; set; }
+    public DateTime Birthday { get; set; }
 
-    public CreateCustomerInputModel()
+    public CreateCustomerInputModel(string name, string surname, string email, DateTime birthday)
     {
-        Name = Surname = Email = string.Empty;
+        Name = name;
+        Surname = surname;
+        Email = email;
+        Birthday = birthday;
     }
 }

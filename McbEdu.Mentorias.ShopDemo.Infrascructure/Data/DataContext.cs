@@ -6,7 +6,7 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Data;
 
 public class DataContext : DbContext
 {
-    public DbSet<Customer> Customers { get; }
+    public DbSet<Customer> Customers { get; protected set; }
 
     private IBaseMapping<Customer> CustomerBaseMapping { get; }
 

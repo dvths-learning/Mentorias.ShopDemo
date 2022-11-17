@@ -14,14 +14,14 @@ public class ExtendsCustomerRepository : CustomerRepository, IExtendsRepository<
 
     public async Task<bool> VerifyEntityExistsAsync(string information)
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return false;
+        if (_dataContext.Customers is null) return false;
 
         return await _dataContext.Customers.Where(p => p.Email == information).AnyAsync();
     }
 
     public async Task<bool> VerifyEntityExistsAsync(Guid identifier)
     {
-        if (await _dataContext.Customers.CountAsync() < 1) return false;
+        if (_dataContext.Customers is null) return false;
 
         return await _dataContext.Customers.Where(p => p.Identifier == identifier).AnyAsync();
     }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221117205438_BaseMigration")]
+    [Migration("20221117211510_BaseMigration")]
     partial class BaseMigration
     {
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("Birthday")
+                    b.Property<DateTime>("Birthday")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

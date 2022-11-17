@@ -8,10 +8,10 @@ public abstract class CustomerBase
     public string Name { get; private set; }
     public string Surname { get; private set; }
     public string Email { get; private set; }
-    public DateOnly Birthday { get; private set; }
+    public DateTime Birthday { get; private set; }
     public TypeCustomer TypeCustomer { get; }
 
-    protected CustomerBase(Guid identifier, string name, string surname, string email, DateOnly birthday, TypeCustomer typeCustomer)
+    protected CustomerBase(Guid identifier, string name, string surname, string email, DateTime birthday, TypeCustomer typeCustomer)
     {
         Identifier = identifier;
         Name = name;

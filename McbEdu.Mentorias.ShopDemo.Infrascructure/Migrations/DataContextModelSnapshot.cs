@@ -23,7 +23,7 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("Birthday")
+                    b.Property<DateTime>("Birthday")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

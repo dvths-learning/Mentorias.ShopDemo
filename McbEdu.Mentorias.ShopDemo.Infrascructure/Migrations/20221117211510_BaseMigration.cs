@@ -19,7 +19,7 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Surname = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Birthday = table.Column<DateOnly>(type: "TEXT", nullable: false)
+                    Birthday = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,8 +30,7 @@ namespace McbEdu.Mentorias.ShopDemo.Infrascructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Customers");
+
         }
     }
 }
