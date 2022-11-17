@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.WebApi", "McbEdu.Mentorias.ShopDemo.WebApi\McbEdu.Mentorias.ShopDemo.WebApi.csproj", "{4F32C75D-2434-407B-B2C2-7D767B28153F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.Application", "McbEdu.Mentorias.ShopDemo.Application\McbEdu.Mentorias.ShopDemo.Application.csproj", "{2401D166-28B3-4727-A1E0-4506FD6CDA7A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.Domain", "McbEdu.Mentorias.ShopDemo.Application\McbEdu.Mentorias.ShopDemo.Domain.csproj", "{2401D166-28B3-4727-A1E0-4506FD6CDA7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.Infrascructure", "McbEdu.Mentorias.ShopDemo.Infrascructure\McbEdu.Mentorias.ShopDemo.Infrascructure.csproj", "{A7284BB5-7F2D-4075-852B-775D97DA4172}"
 EndProject

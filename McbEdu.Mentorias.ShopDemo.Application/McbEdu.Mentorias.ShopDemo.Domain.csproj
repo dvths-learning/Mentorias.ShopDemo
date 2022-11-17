@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\Domain\" />
+    <Folder Include="Models\Validators\" />
+  </ItemGroup>
+
 </Project>
