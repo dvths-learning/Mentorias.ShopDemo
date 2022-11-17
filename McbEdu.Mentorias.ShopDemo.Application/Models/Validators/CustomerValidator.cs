@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using McbEdu.Mentorias.ShopDemo.Domain.Models.DTOs;
+using McbEdu.Mentorias.ShopDemo.Domain.Models.Entities;
 
 namespace McbEdu.Mentorias.ShopDemo.Domain.Models.Validators;
 
-public class CustomerValidator : AbstractValidator<Customer>
+public class CustomerValidator : AbstractValidator<CustomerBase>
 {
     public CustomerValidator()
     {
