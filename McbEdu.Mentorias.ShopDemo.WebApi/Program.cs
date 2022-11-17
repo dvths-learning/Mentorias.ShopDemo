@@ -1,4 +1,9 @@
 
+using McbEdu.Mentorias.ShopDemo.Domain.Contracts.Infrascructure.Mappings;
+using McbEdu.Mentorias.ShopDemo.Domain.Models.DTOs;
+using McbEdu.Mentorias.ShopDemo.Infrascructure.Data;
+using McbEdu.Mentorias.ShopDemo.Infrascructure.Data.Mappings;
+
 namespace McbEdu.Mentorias.ShopDemo.WebApi;
 
 public class Program
@@ -11,14 +16,13 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddDbContext<DataContext>();
+
+        builder.Services.AddSingleton<IBaseMapping<Customer>, CustomerBaseMapping>();
+
         var app = builder.Build();
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
+        app.UseSwagger();
+        app.UseSwaggerUI();
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
