@@ -7,8 +7,6 @@ public class CustomerValidator : AbstractValidator<CustomerBase>
 {
     public CustomerValidator()
     {
-        RuleFor(p => p.Identifier).NotEmpty().WithMessage("O identificador é requerido.");
-        RuleFor(p => p.Identifier).NotNull().WithMessage("O identificador é requerido.");
         RuleFor(p => p.Identifier.ToString()).Matches(@"^[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}$").WithMessage("O identificador precisa estar no padrão esperado.");
 
         RuleFor(c => c.Name).NotEmpty().NotNull().WithMessage("O nome do cliente não pode ser nulo ou vazio.");

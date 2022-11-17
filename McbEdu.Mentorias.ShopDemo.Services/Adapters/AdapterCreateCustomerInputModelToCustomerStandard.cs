@@ -8,6 +8,6 @@ public class AdapterCreateCustomerInputModelToCustomerStandard : IAdapter<Custom
 {
     public CustomerStandard Adapt(CreateCustomerInputModel adapter)
     {
-        return new CustomerStandard(adapter.Identifier, adapter.Name, adapter.Surname, adapter.Email, adapter.Birthday);
+        return new CustomerStandard(Guid.NewGuid(), adapter.Name, adapter.Surname, adapter.Email, adapter.Birthday);
     }
 }

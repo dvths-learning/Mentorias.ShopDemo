@@ -14,7 +14,7 @@ public class CustomerController : ControllerBase
     [HttpPost]
     [Route("Create")]
     public async Task<IActionResult> Create(
-        [FromBody][Required] CreateCustomerInputModel model,
+        [FromHeader][Required] CreateCustomerInputModel model,
         [FromServices] HandlerBase<CreateCustomerResponse, CreateCustomerRequest> handler,
         [FromServices] NotifiableConsumerStandard notifiableConsumer
         )
