@@ -5,10 +5,13 @@ namespace McbEdu.Mentorias.ShopDemo.Domain.Models.Entities.Notification.Content;
 
 public abstract class NotifiableBase
 {
-    private List<NotificationItemBase> Notifications;
+    public List<NotificationItemBase> Notifications { get; }
 
-    protected NotifiableBase() 
+    public TypeNotification TypeNotification { get; }
+
+    protected NotifiableBase(TypeNotification typeNotification) 
     { 
+        TypeNotification = typeNotification;
         Notifications = new List<NotificationItemBase>();
     }
 
@@ -20,10 +23,5 @@ public abstract class NotifiableBase
     public void AddNotifications(List<NotificationItemBase> notifications)
     {
         this.Notifications.AddRange(notifications);
-    }
-
-    public IEnumerable<NotificationItemBase> GetNotifications()
-    {
-        return this.Notifications;
     }
 }

@@ -2,5 +2,5 @@
 
 public abstract class HandlerBase<Response, Request> where Response : class where Request : class
 {
-    public abstract Task<Response> Handle(in Request request);
+    public abstract Task<Response> Handle(Request request);
 }
