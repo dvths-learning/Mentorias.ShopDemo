@@ -2,5 +2,5 @@
 
 public interface IAdapter<out Adaptee, in Adapter> where Adaptee : class where Adapter : class
 {
-    public abstract Adaptee Adapt(Adapter adapter);
+    public abstract Adaptee Adapt(in Adapter adapter);
 }

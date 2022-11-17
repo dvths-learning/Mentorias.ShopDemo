@@ -6,7 +6,7 @@ namespace McbEdu.Mentorias.ShopDemo.Services.Adapters;
 
 public class AdapterCreateCustomerInputModelToCustomerStandard : IAdapter<CustomerStandard, CreateCustomerInputModel>
 {
-    public CustomerStandard Adapt(CreateCustomerInputModel adapter)
+    public CustomerStandard Adapt(in CreateCustomerInputModel adapter)
     {
         return new CustomerStandard(adapter.Identifier, adapter.Name, adapter.Surname, adapter.Email, adapter.Birthday);
     }
