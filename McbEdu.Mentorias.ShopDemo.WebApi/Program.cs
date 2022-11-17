@@ -1,6 +1,7 @@
-
+using FluentValidation;
 using McbEdu.Mentorias.ShopDemo.Domain.Contracts.Infrascructure.Mappings;
 using McbEdu.Mentorias.ShopDemo.Domain.Models.DTOs;
+using McbEdu.Mentorias.ShopDemo.Domain.Models.Validators;
 using McbEdu.Mentorias.ShopDemo.Infrascructure.Data;
 using McbEdu.Mentorias.ShopDemo.Infrascructure.Data.Mappings;
 
@@ -18,7 +19,9 @@ public class Program
 
         builder.Services.AddDbContext<DataContext>();
 
+        builder.Services.AddScoped<AbstractValidator<Customer>, CustomerValidator>();
         builder.Services.AddScoped<DataContext>();
+
         builder.Services.AddSingleton<IBaseMapping<Customer>, CustomerBaseMapping>();
 
         var app = builder.Build();
