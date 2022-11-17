@@ -32,11 +32,11 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         builder.Services.AddSingleton<IBaseMapping<Customer>, CustomerBaseMapping>();
-        builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($@"Data Source=Ecommerce.db", b => b.MigrationsAssembly("McbEdu.Mentorias.ShopDemo.WebApi")));
+        builder.Services.AddDbContext<DataContext>(options => options.UseSqlite($@"Data Source=Ecommerce.db", b => b.MigrationsAssembly("McbEdu.Mentorias.ShopDemo.Infrascructure")));
         builder.Services.AddScoped<DataContext>();
         builder.Services.AddScoped<IExtendsRepository<Customer>, ExtendsCustomerRepository>();
 
-        builder.Services.AddScoped<NotifiableStandard>();
+        builder.Services.AddScoped<NotifiableBase, NotifiableStandard>();
         builder.Services.AddTransient<NotifiablePublisherStandard>();
         builder.Services.AddTransient<NotifiableConsumerStandard>();
         builder.Services.AddTransient<IAdapter<CustomerStandard, CreateCustomerInputModel>, AdapterCreateCustomerInputModelToCustomerStandard>();

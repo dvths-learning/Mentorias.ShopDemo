@@ -4,6 +4,7 @@ using McbEdu.Mentorias.ShopDemo.Domain.Models.ENUMs;
 using McbEdu.Mentorias.ShopDemo.Services.Handlers.CreateCustomer;
 using McbEdu.Mentorias.ShopDemo.Services.Handlers.CreateCustomer.Inputs;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace McbEdu.Mentorias.ShopDemo.WebApi.Controllers;
 
@@ -13,7 +14,7 @@ public class CustomerController : ControllerBase
     [HttpPost]
     [Route("Create")]
     public async Task<IActionResult> Create(
-        [FromBody] CreateCustomerInputModel model,
+        [FromBody][Required] CreateCustomerInputModel model,
         [FromServices] HandlerBase<CreateCustomerResponse, CreateCustomerRequest> handler,
         [FromServices] NotifiableConsumerStandard notifiableConsumer
         )
