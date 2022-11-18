@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FB502CA8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.Tests", "tests\McbEdu.Mentorias.ShopDemo.Tests\McbEdu.Mentorias.ShopDemo.Tests.csproj", "{97DA8774-3715-4DC2-8088-3302174A6C15}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7C5F9D4-8E08-4A46-9302-EB025A3C0DF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.WebApi", "src\McbEdu.Mentorias.ShopDemo.WebApi\McbEdu.Mentorias.ShopDemo.WebApi.csproj", "{F63EDA8E-D06C-4E95-9D94-5375C6BA830A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{97DA8774-3715-4DC2-8088-3302174A6C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97DA8774-3715-4DC2-8088-3302174A6C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97DA8774-3715-4DC2-8088-3302174A6C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63EDA8E-D06C-4E95-9D94-5375C6BA830A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63EDA8E-D06C-4E95-9D94-5375C6BA830A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63EDA8E-D06C-4E95-9D94-5375C6BA830A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63EDA8E-D06C-4E95-9D94-5375C6BA830A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{97DA8774-3715-4DC2-8088-3302174A6C15} = {FB502CA8-BB9F-4C7A-BB8E-DBC91794A548}
+		{F63EDA8E-D06C-4E95-9D94-5375C6BA830A} = {C7C5F9D4-8E08-4A46-9302-EB025A3C0DF0}
 	EndGlobalSection
 EndGlobal
