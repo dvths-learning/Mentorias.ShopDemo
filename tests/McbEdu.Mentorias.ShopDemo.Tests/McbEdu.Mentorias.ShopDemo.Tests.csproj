@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\McbEdu.Mentorias.ShopDemo.WebApi\McbEdu.Mentorias.ShopDemo.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
