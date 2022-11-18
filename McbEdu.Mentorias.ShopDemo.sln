@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FB502CA8-BB9F-4C7A-BB8E-DBC91794A548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McbEdu.Mentorias.ShopDemo.Tests", "tests\McbEdu.Mentorias.ShopDemo.Tests\McbEdu.Mentorias.ShopDemo.Tests.csproj", "{97DA8774-3715-4DC2-8088-3302174A6C15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +14,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97DA8774-3715-4DC2-8088-3302174A6C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97DA8774-3715-4DC2-8088-3302174A6C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97DA8774-3715-4DC2-8088-3302174A6C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97DA8774-3715-4DC2-8088-3302174A6C15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97DA8774-3715-4DC2-8088-3302174A6C15} = {FB502CA8-BB9F-4C7A-BB8E-DBC91794A548}
 	EndGlobalSection
 EndGlobal
