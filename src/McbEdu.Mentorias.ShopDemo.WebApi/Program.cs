@@ -1,14 +1,19 @@
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
+using McbEdu.Mentorias.ShopDemo.Application;
+using McbEdu.Mentorias.ShopDemo.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
 {
+    builder.Services
+        .AddApplication()
+        .AddInfrastructure();
+
     builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
-    builder.Services.AddScoped<IImportCustomerService, ImportCustomerService>();
 }
 
 var app = builder.Build();
+
 {
     if (app.Environment.IsDevelopment())
     {
@@ -17,8 +22,6 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
-
-    app.UseAuthorization();
 
     app.MapControllers();
 
