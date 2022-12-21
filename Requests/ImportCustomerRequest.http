@@ -1,0 +1,12 @@
+@host=https://localhost:7153
+
+
+POST {{host}}/customers
+Content-Type: application/json
+
+{
+  "firstName": "Tiago",
+  "lastName": "Henrique",
+  "birthDate": "17/09/1987",
+  "email": "tiagohenrique@email.com"
+}
