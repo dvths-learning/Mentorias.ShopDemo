@@ -1,8 +1,6 @@
+using McbEdu.Mentorias.ShopDemo.Domain.Entities;
+
 namespace McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
 
 public record ImportCustomerResult(
-    Guid Id,
-    string FirstName,
-    string LastName,
-    string Email,
-    string BirthDate);
+    Customer Customer);
