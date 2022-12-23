@@ -1,5 +1,6 @@
 using McbEdu.Mentorias.ShopDemo.Application;
 using McbEdu.Mentorias.ShopDemo.Infrastructure;
+using McbEdu.Mentorias.ShopDemo.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ var app = builder.Build();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
+
+    app.UseMiddleware<ErrorHandlingMiddleware>();
 
     app.UseHttpsRedirection();
 
