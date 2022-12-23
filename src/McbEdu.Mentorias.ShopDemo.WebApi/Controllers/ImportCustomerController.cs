@@ -19,18 +19,18 @@ public class ImportCustomerController : ControllerBase
     [HttpPost]
     public IActionResult ImportOneCustomer(CustomerImportDataRequest request)
     {
-        var importCustomerResult = _importCustomerService.ImportNewCustomer(
+        var importResult = _importCustomerService.ImportNewCustomer(
             request.FirstName,
             request.LastName,
             request.Email,
             request.BirthDate);
 
         var response = new CustomerImportDataResponse(
-            importCustomerResult.Id,
-            importCustomerResult.FirstName,
-            importCustomerResult.LastName,
-            importCustomerResult.Email,
-            importCustomerResult.BirthDate);
+            importResult.Customer.Id,
+            importResult.Customer.FirstName,
+            importResult.Customer.LastName,
+            importResult.Customer.Email,
+            importResult.Customer.BirthDate);
 
         return Ok(response);
     }
