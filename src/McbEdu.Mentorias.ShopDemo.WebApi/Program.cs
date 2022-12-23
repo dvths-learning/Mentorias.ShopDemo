@@ -1,6 +1,6 @@
 using McbEdu.Mentorias.ShopDemo.Application;
 using McbEdu.Mentorias.ShopDemo.Infrastructure;
-using McbEdu.Mentorias.ShopDemo.WebApi.Middleware;
+using McbEdu.Mentorias.ShopDemo.WebApi.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrastructure();
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
     builder.Services.AddSwaggerGen();
 }
 
@@ -21,8 +21,6 @@ var app = builder.Build();
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-
-    app.UseMiddleware<ErrorHandlingMiddleware>();
 
     app.UseHttpsRedirection();
 
