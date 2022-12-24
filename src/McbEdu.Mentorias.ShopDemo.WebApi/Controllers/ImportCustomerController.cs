@@ -1,6 +1,5 @@
 using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
 using McbEdu.Mentorias.ShopDemo.Contracts.ImportCustomer;
-using McbEdu.Mentorias.ShopDemo.WebApi.Filters;
 
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,6 +1,8 @@
 using McbEdu.Mentorias.ShopDemo.Application;
 using McbEdu.Mentorias.ShopDemo.Infrastructure;
-using McbEdu.Mentorias.ShopDemo.WebApi.Filters;
+using McbEdu.Mentorias.ShopDemo.WebApi.Errors;
+
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrastructure();
 
-    builder.Services.AddControllers(options => options.Filters.Add<ErrorHandlingFilterAttribute>());
+    builder.Services.AddControllers();
+    builder.Services.AddSingleton<ProblemDetailsFactory, ShopDemoProblemDetailsFactory>();
     builder.Services.AddSwaggerGen();
 }
 
@@ -22,6 +25,7 @@ var app = builder.Build();
         app.UseSwaggerUI();
     }
 
+    app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
 
     app.MapControllers();
