@@ -1,4 +1,7 @@
+using ErrorOr;
+
 using McbEdu.Mentorias.ShopDemo.Application.Common.Interfaces.Persistence;
+using McbEdu.Mentorias.ShopDemo.Domain.Common.Errors;
 using McbEdu.Mentorias.ShopDemo.Domain.Entities;
 
 namespace McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
@@ -12,7 +15,7 @@ public class ImportCustomerService : IImportCustomerService
         _customerRepository = customerRepository;
     }
 
-    public ImportCustomerResult ImportNewCustomer(
+    public ErrorOr<ImportCustomerResult> ImportNewCustomer(
         string firstName,
         string lastName,
         string email,
@@ -21,7 +24,7 @@ public class ImportCustomerService : IImportCustomerService
         // 1. checar se o cliente não existe no banco
         if (_customerRepository.GetCustomerByEmail(email) is not null)
         {
-            throw new Exception("Customer with given email already exists.");
+            return Errors.Customer.EmailAlreadyExists;
         }
 
         // 2. Criar um novo cliente 

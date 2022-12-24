@@ -1,10 +1,15 @@
 using System.Diagnostics;
+
+using ErrorOr;
+
+using McbEdu.Mentorias.ShopDemo.WebApi.Common.Http;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
 
-namespace McbEdu.Mentorias.ShopDemo.WebApi.Errors;
+namespace McbEdu.Mentorias.ShopDemo.WebApi.Common.Errors;
 
 public class ShopDemoProblemDetailsFactory : ProblemDetailsFactory
 {
@@ -89,7 +94,11 @@ public class ShopDemoProblemDetailsFactory : ProblemDetailsFactory
             problemDetails.Extensions["traceId"] = traceId;
         }
 
-        problemDetails.Extensions.Add("customProperty", "customValue");
+        var errors = httpContext?.Items[HttpContextItemsKeys.Errors] as List<Error>;
 
+        if (errors is not null)
+        {
+            problemDetails.Extensions.Add("errorsCodes", errors.Select(e => e.Code));
+        }
     }
 }

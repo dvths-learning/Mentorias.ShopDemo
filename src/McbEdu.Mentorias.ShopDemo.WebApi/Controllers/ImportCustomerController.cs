@@ -1,3 +1,5 @@
+using ErrorOr;
+
 using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
 using McbEdu.Mentorias.ShopDemo.Contracts.ImportCustomer;
 
@@ -5,9 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace McbEdu.Mentorias.ShopDemo.WebApi.Controllers;
 
-[ApiController]
 [Route("customers")]
-public class ImportCustomerController : ControllerBase
+public class ImportCustomerController : ApiController
 {
     private readonly IImportCustomerService _importCustomerService;
 
@@ -19,19 +20,25 @@ public class ImportCustomerController : ControllerBase
     [HttpPost]
     public IActionResult ImportOneCustomer(CustomerImportDataRequest request)
     {
-        var importResult = _importCustomerService.ImportNewCustomer(
+        ErrorOr<ImportCustomerResult> importResult = _importCustomerService.ImportNewCustomer(
             request.FirstName,
             request.LastName,
             request.Email,
             request.BirthDate);
 
-        var response = new CustomerImportDataResponse(
+        return importResult.Match(
+            importResult => Ok(MapImportResult(importResult)),
+            errors => Problem(errors)
+        );
+    }
+
+    private static CustomerImportDataResponse MapImportResult(ImportCustomerResult importResult)
+    {
+        return new CustomerImportDataResponse(
             importResult.Customer.Id,
             importResult.Customer.FirstName,
             importResult.Customer.LastName,
             importResult.Customer.Email,
             importResult.Customer.BirthDate);
-
-        return Ok(response);
     }
 }

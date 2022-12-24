@@ -1,6 +1,6 @@
 using McbEdu.Mentorias.ShopDemo.Application;
 using McbEdu.Mentorias.ShopDemo.Infrastructure;
-using McbEdu.Mentorias.ShopDemo.WebApi.Errors;
+using McbEdu.Mentorias.ShopDemo.WebApi.Common.Errors;
 
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
