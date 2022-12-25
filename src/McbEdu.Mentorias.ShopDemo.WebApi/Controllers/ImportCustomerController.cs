@@ -1,8 +1,10 @@
 using ErrorOr;
 
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Commands;
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Common;
+using McbEdu.Mentorias.ShopDemo.Application.Import.Commands.ImportOneCustomerCommand;
+using McbEdu.Mentorias.ShopDemo.Application.Import.Common;
 using McbEdu.Mentorias.ShopDemo.Contracts.ImportCustomer;
+
+using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,21 +13,23 @@ namespace McbEdu.Mentorias.ShopDemo.WebApi.Controllers;
 [Route("customers")]
 public class ImportCustomerController : ApiController
 {
-    private readonly IImportCustomerCommandService _importCustomerCommandService;
+    private readonly ISender _mediator;
 
-    public ImportCustomerController(IImportCustomerCommandService importCustomerService)
+    public ImportCustomerController(ISender mediator)
     {
-        _importCustomerCommandService = importCustomerService;
+        _mediator = mediator;
     }
 
     [HttpPost]
-    public IActionResult ImportOneCustomer(CustomerImportDataRequest request)
+    public async Task<IActionResult> ImportOneCustomer(CustomerImportDataRequest request)
     {
-        ErrorOr<ImportCustomerResult> importResult = _importCustomerCommandService.ImportNewCustomer(
+        var command = new ImportOneCustomerCommand(
             request.FirstName,
             request.LastName,
             request.Email,
             request.BirthDate);
+
+        ErrorOr<ImportCustomerResult> importResult = await _mediator.Send(command);
 
         return importResult.Match(
             importResult => Ok(MapImportResult(importResult)),

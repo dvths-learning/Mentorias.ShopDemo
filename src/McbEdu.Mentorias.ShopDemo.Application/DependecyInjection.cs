@@ -1,4 +1,4 @@
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Commands;
+using MediatR;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +8,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IImportCustomerCommandService, ImportCustomerCommandService>();
+        services.AddMediatR(typeof(DependencyInjection).Assembly);
         return services;
     }
 }
