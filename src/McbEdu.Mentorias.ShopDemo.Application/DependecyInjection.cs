@@ -1,4 +1,4 @@
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
+using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Commands;
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +8,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IImportCustomerService, ImportCustomerService>();
+        services.AddScoped<IImportCustomerCommandService, ImportCustomerCommandService>();
         return services;
     }
 }

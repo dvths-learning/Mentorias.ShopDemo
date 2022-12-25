@@ -1,16 +1,17 @@
 using ErrorOr;
 
 using McbEdu.Mentorias.ShopDemo.Application.Common.Interfaces.Persistence;
+using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Common;
 using McbEdu.Mentorias.ShopDemo.Domain.Common.Errors;
 using McbEdu.Mentorias.ShopDemo.Domain.Entities;
 
-namespace McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
+namespace McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Commands;
 
-public class ImportCustomerService : IImportCustomerService
+public class ImportCustomerCommandService : IImportCustomerCommandService
 {
     private readonly ICustomerRepository _customerRepository;
 
-    public ImportCustomerService(ICustomerRepository customerRepository)
+    public ImportCustomerCommandService(ICustomerRepository customerRepository)
     {
         _customerRepository = customerRepository;
     }

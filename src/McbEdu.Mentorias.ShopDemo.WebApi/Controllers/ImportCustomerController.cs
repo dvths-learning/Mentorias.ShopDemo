@@ -1,6 +1,7 @@
 using ErrorOr;
 
-using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers;
+using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Commands;
+using McbEdu.Mentorias.ShopDemo.Application.Services.Import.Customers.Common;
 using McbEdu.Mentorias.ShopDemo.Contracts.ImportCustomer;
 
 using Microsoft.AspNetCore.Mvc;
@@ -10,17 +11,17 @@ namespace McbEdu.Mentorias.ShopDemo.WebApi.Controllers;
 [Route("customers")]
 public class ImportCustomerController : ApiController
 {
-    private readonly IImportCustomerService _importCustomerService;
+    private readonly IImportCustomerCommandService _importCustomerCommandService;
 
-    public ImportCustomerController(IImportCustomerService importCustomerService)
+    public ImportCustomerController(IImportCustomerCommandService importCustomerService)
     {
-        _importCustomerService = importCustomerService;
+        _importCustomerCommandService = importCustomerService;
     }
 
     [HttpPost]
     public IActionResult ImportOneCustomer(CustomerImportDataRequest request)
     {
-        ErrorOr<ImportCustomerResult> importResult = _importCustomerService.ImportNewCustomer(
+        ErrorOr<ImportCustomerResult> importResult = _importCustomerCommandService.ImportNewCustomer(
             request.FirstName,
             request.LastName,
             request.Email,
