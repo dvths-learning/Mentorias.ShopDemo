@@ -7,6 +7,6 @@ Content-Type: application/json
 {
   "firstName": "Tiago",
   "lastName": "Henrique",
-  "birthDate": "17/09/1987",
-  "email": "tiagohenrique@email.com"
+  "email": "tiagohenrique@email.com",
+  "birthDate": "17/09/1987"
 }

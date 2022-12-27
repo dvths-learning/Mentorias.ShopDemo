@@ -13,7 +13,6 @@ public class ImportOneCustomerCommandHandler :
     IRequestHandler<ImportOneCustomerCommand, ErrorOr<ImportCustomerResult>>
 {
     private readonly ICustomerRepository _customerRepository;
-
     public ImportOneCustomerCommandHandler(ICustomerRepository customerRepository)
     {
         _customerRepository = customerRepository;

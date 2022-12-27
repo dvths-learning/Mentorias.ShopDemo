@@ -1,10 +1,12 @@
 using ErrorOr;
 
+using MapsterMapper;
+using MediatR;
+
 using McbEdu.Mentorias.ShopDemo.Application.Import.Commands.ImportOneCustomerCommand;
 using McbEdu.Mentorias.ShopDemo.Application.Import.Common;
 using McbEdu.Mentorias.ShopDemo.Contracts.ImportCustomer;
 
-using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,36 +16,24 @@ namespace McbEdu.Mentorias.ShopDemo.WebApi.Controllers;
 public class ImportCustomerController : ApiController
 {
     private readonly ISender _mediator;
+    private readonly IMapper _mapper;
 
-    public ImportCustomerController(ISender mediator)
+    public ImportCustomerController(ISender mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpPost]
     public async Task<IActionResult> ImportOneCustomer(CustomerImportDataRequest request)
     {
-        var command = new ImportOneCustomerCommand(
-            request.FirstName,
-            request.LastName,
-            request.Email,
-            request.BirthDate);
+        var command = _mapper.Map<ImportOneCustomerCommand>(request);
 
         ErrorOr<ImportCustomerResult> importResult = await _mediator.Send(command);
 
         return importResult.Match(
-            importResult => Ok(MapImportResult(importResult)),
+            importResult => Ok(_mapper.Map<CustomerImportDataResponse>(importResult)),
             errors => Problem(errors)
         );
-    }
-
-    private static CustomerImportDataResponse MapImportResult(ImportCustomerResult importResult)
-    {
-        return new CustomerImportDataResponse(
-            importResult.Customer.Id,
-            importResult.Customer.FirstName,
-            importResult.Customer.LastName,
-            importResult.Customer.Email,
-            importResult.Customer.BirthDate);
     }
 }
